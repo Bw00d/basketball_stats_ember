@@ -7,19 +7,28 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <script type="text/x-handlebars">
+  <script type="text/x-handlebars" data-template-name="teams">
     <h2>Statskeeper</h2>
 
-    {{outlet}}
+     <div id="team">
+        <header><h3>Teams</h3></header>
+        {{#each}}
+          <div class="team-names">{{name}}</div><br/>
+        {{/each}}
+     </div>
+
+
+    {{input type="text" id="new-team" placeholder="Enter a new team" value=newTeam action="createTeam"}}
   </script>
 
+
   <script type="text/x-handlebars" id="index">
-    <ul>
-    {{#each item in model}}
-      <li>{{item}}</li>
-    {{/each}}
-    </ul>
+
+
+
+
   </script>
+
 
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
@@ -27,6 +36,10 @@
   <script src="js/libs/ember-data.js"></script>
   <script src="js/libs/localstorage_adapter.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/models/team.js"></script>
+  <script src="js/models/player.js"></script>
+  <script src="js/controllers/teams_controller.js"></script>
   <!-- to activate the test runner, add the "?test" query string parameter -->
   <script src="tests/runner.js"></script>
 </body>

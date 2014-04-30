@@ -1,11 +1,10 @@
-App = Ember.Application.create();
-
-App.Router.map(function() {
-  // put your routes here
+window.App = Ember.Application.create({
+  LOG_TRANSITIONS: true
 });
 
-App.IndexRoute = Ember.Route.extend({
-  model: function() {
-    return ['red', 'yellow', 'blue'];
-  }
-});
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+
+
+
+
+
