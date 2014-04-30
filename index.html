@@ -5,28 +5,33 @@
   <title>Basketball Stats</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
   <script type="text/x-handlebars" data-template-name="teams">
     <h2>Statskeeper</h2>
+    <div class="row">
+      <div class="col-sm-4">
+       <div id="team">
+          <header><h3>Teams</h3></header>
+          {{#each}}
+            <div class="team-names">{{#link-to 'team' this}}{{name}}{{/link-to}}</div><br/>
+          {{/each}}
+       </div>
 
-     <div id="team">
-        <header><h3>Teams</h3></header>
-        {{#each}}
-          <div class="team-names">{{name}}</div><br/>
-        {{/each}}
-     </div>
 
+      {{input type="text" id="new-team" placeholder="Enter a new team" value=newTeam action="createTeam"}}
+      </div>
+      {{outlet}}
+    </div>
 
-    {{input type="text" id="new-team" placeholder="Enter a new team" value=newTeam action="createTeam"}}
   </script>
 
 
-  <script type="text/x-handlebars" id="index">
-
-
-
-
+  <script type="text/x-handlebars" data-template-name="team">
+    <div class="col-sm-4">
+      <h4>{{name}}</h4>
+    </div>
   </script>
 
 
